@@ -10,6 +10,14 @@ public class Reservation {
     Date to;
     User user;
     Court court;
+
+    public Reservation(Date from, Date to, User user, Court court) {
+        this.from = from;
+        this.to = to;
+        this.user = user;
+        this.court = court;
+    }
+
     void Checkin()
     {
 

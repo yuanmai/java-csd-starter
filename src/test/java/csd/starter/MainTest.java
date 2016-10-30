@@ -3,16 +3,20 @@ package csd.starter;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
-import static org.junit.Assert.fail;
+import java.util.Date;
 
 public class MainTest {
 
     @Test
     public void test() {
-//        Assert.assertEquals(true, ReserveClass.Reserve(1));
-        fail();
+
+        Player tennisPlayer = new Player();
+        Manager manager = new Manager();
+        PremiumPlayer prePlayer = new PremiumPlayer();
+        Court court = new Court();
+        Reservation resev = new Reservation(new Date(1000), new Date(2000), tennisPlayer, court);
+
+
+        Assert.assertEquals(true, court.Reserve(resev));
     }
 }
