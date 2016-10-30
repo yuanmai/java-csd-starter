@@ -12,7 +12,7 @@ public class MainTest {
 
     @Test
     public void test() {
-        Assert.assertEquals(true, ReserveClass.Reserve(1));
-        Assert.assertEquals(false, ReserveClass.Reserve(1));
+//        Assert.assertEquals(true, ReserveClass.Reserve(1));
+        fail();
     }
 }
