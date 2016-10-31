@@ -8,6 +8,10 @@ import java.util.List;
  */
 public class Manager extends User {
 
+    public Manager(String name) {
+        this.name = name;
+        this.role = "Manager";
+    }
     List<Court> checkAvail(Date from, Date to) {
         return null;
     }
