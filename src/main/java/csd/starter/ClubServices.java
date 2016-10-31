@@ -1,7 +1,5 @@
 package csd.starter;
 
-import sun.plugin2.message.Message;
-
 /**
  * Created by anassar on 10/30/2016.
  */
