@@ -27,9 +27,10 @@ public class Player extends User {
         {
             Court currentCourt = Club.ActiveClub.courts.get(i);
             double currentDistance = Math.sqrt(Math.pow(x-currentCourt.x, 2) + Math.pow(y-currentCourt.y, 2));
-            if(currentDistance <  nearestDistance)
+            if((currentDistance - nearestDistance) < 0.0d)
             {
                 nearestCourt = currentCourt;
+                nearestDistance = currentDistance;
             }
         }
         return nearestCourt;
