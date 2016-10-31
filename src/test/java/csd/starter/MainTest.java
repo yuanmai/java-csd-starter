@@ -12,8 +12,9 @@ public class MainTest {
         Manager manager = new Manager("Zaazaa");
         PremiumPlayer prePlayer = new PremiumPlayer("ElFoly");
         Court court = new Court();
+        Club club = new Club();
         Reservation resev = new Reservation(new Date(116, 10, 10, 11, 0), new Date(116, 10, 10, 13, 0), tennisPlayer, court);
-        Assert.assertEquals(true, court.Reserve(resev));
+        Assert.assertEquals(true, club.Reserve(resev));
     }
 
 //    @Test

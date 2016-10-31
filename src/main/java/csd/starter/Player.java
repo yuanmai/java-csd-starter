@@ -17,7 +17,7 @@ public class Player extends User {
         this.role = role;
     }
 
-    void requestReservation(Date from, Date to) {
+    void requestReservation(Reservation resev) {
 
     }
 }
