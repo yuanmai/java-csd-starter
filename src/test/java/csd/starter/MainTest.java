@@ -54,4 +54,10 @@ public class MainTest {
         Assert.assertEquals(true, club.Reserve(resev, PremiumPlayer.scheduleType.weekly));
 
     }
+
+    @Test
+    public void MainTest()
+    {
+        Main.main(new String[] { "Amir\r\n10-10-2010 10:10\r\n10\r\n10"});
+    }
 }

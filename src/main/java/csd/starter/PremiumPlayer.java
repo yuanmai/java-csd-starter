@@ -7,12 +7,13 @@ import java.util.Date;
  */
 public class PremiumPlayer extends Player {
 
-    public PremiumPlayer(String name){
+    public PremiumPlayer(String name) {
         super(name, "Player");
     }
 
-    public enum scheduleType{
+    public enum scheduleType {
         daily,
         weekly,
         monthly
     }
+}
