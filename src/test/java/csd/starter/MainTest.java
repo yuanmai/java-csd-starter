@@ -25,7 +25,7 @@ public class MainTest
         databaseObjIntest.setCourtNumber();
         databaseObjIntest.setRID();
 
-        m_test.addEntryInDB(databaseObjIntest);
+//        m_test.addEntryInDB(databaseObjIntest);
 
         assertEquals("Mohamed", databaseObjIntest.getUsername());
         assertEquals("Today", databaseObjIntest.getDateTime());
