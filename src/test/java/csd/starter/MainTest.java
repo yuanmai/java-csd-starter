@@ -22,6 +22,25 @@ public class MainTest {
     }
 
     @Test
+    public void retrievingTheSecondCourtAfterAddingTwoCourtsSucceeds() {
+        final Club club = new Club();
+        final Court secondCourt = new Court("Court Two");
+
+        club.AddCourt(new Court("Court One"));
+        club.AddCourt(secondCourt);
+        Assert.assertEquals(secondCourt, club.GetCourtByName("Court Two"));
+
+    }
+
+    @Test
+    public void getNonExistentCourtReturnsNull() {
+        final Club club = new Club();
+
+        Assert.assertEquals(null, club.GetCourtByName(""));
+
+    }
+
+    @Test
     public void reservingEmptySlotSucceeds() {
         final Club club = new Club();
         final ReservationService srvc = new ReservationService(club);
