@@ -78,10 +78,29 @@ public class MainTest {
     public void NotSuccessfulPaymentTest() {
 
         Reservation rev1 = new Reservation(new Date(2016,10,30, 10,00, 00),10,1,4, 5 );
-
         CheckoutResponse resp = ClubServices.ChekoutService(rev1, 10);
 
         Assert.assertEquals(resp.Success, false);
         Assert.assertEquals(resp.Change, -10);
+    }
+
+    @Test
+    public void SuccessfulPaymentTestWithExtraChange() {
+
+        Reservation rev1 = new Reservation(new Date(2016,10,30, 10,00, 00),10,1,4, 5 );
+
+        CheckoutResponse resp = ClubServices.ChekoutService(rev1, 30);
+
+        Assert.assertEquals(resp.Success, true);
+        Assert.assertEquals(resp.Change, 10);
+    }
+
+
+
+
+    @Test
+    public void get_reservation_by_id_test_should_not_return_null() {
+        ReservationRepository repo = new ReservationRepository();
+        Assert.assertNotEquals(null,repo.GetreservationById(10));
     }
 }
