@@ -6,4 +6,9 @@ package csd.starter;
 public class User {
     public String name;
     String role;
+
+    public User(String name, String role) {
+        this.name = name;
+        this.role = role;
+    }
 }

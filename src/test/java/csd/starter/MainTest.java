@@ -7,7 +7,7 @@ import java.util.*;
 public class MainTest {
 
     @Test
-    public void size_of_empty_queue_should_be_zero() {
+    public void As_tennis_player_Want_to_make_reservation_online_so_that_I_can_start_playing_when_I_arrive() {
         Player tennisPlayer = new Player("Ahmed");
         Manager manager = new Manager("Zaazaa");
         PremiumPlayer prePlayer = new PremiumPlayer("ElFoly");
