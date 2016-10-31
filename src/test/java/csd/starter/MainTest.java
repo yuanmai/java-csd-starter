@@ -1,9 +1,13 @@
 package csd.starter;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Base64;
 import java.util.Date;
 
 import static org.junit.Assert.fail;
@@ -93,6 +97,15 @@ public class MainTest {
 
         Assert.assertEquals(resp.Success, true);
         Assert.assertEquals(resp.Change, 10);
+    }
+
+    @Test
+    public void PassSuccessfulCheckoutInputsToMainCommandLine() {
+        ByteArrayOutputStream BAout = new ByteArrayOutputStream();
+        PrintStream out = new PrintStream(BAout);
+        Main.CheckoutCommand(new String[]{"Checkout","10","20"},out);
+        String content = new String(BAout.toByteArray(), StandardCharsets.UTF_8);
+        Assert.assertEquals("Checkout Done Successfully",content);
     }
 
 
