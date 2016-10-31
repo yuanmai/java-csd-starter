@@ -51,6 +51,17 @@ public class MainTest {
 
     }
 
+    @Test(expected = InvalidCourtException.class)
+    public void reservingNonExistingCourtFails() {
+        final Club club = new Club();
+        final ReservationService srvc = new ReservationService(club);
+        final LocalDateTime startTime = LocalDateTime.of(2016, 10, 1, 17, 0);
+        final LocalDateTime endTime = LocalDateTime.of(2016, 10, 1, 18, 0);
+
+        srvc.ReserveCourt("Court Two", new Interval(startTime, endTime));
+
+    }
+
     @Test
     public void SuccessfulPaymentTest() {
 
