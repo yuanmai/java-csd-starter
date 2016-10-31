@@ -46,12 +46,12 @@ public class Reservation {
         endDateCal.setTime(endDate);
         System.out.println(endDateCal);
 
-        System.out.println(fromCal.compareTo(endDateCal));
+//        System.out.println(fromCal.compareTo(endDateCal));
 
-        int i = 1;
+//        int i = 1;
         while(fromCal.compareTo(endDateCal) < 0 ){
-            System.out.println(i);
-            i++;
+//            System.out.println(i);
+//            i++;
             this.from = from;
             this.to = to;
             fromCal.add(Calendar.DATE, repetition);
