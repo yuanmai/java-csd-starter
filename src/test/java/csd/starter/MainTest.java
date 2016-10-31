@@ -13,10 +13,8 @@ public class MainTest {
         Player tennisPlayer = new Player();
         Manager manager = new Manager();
         PremiumPlayer prePlayer = new PremiumPlayer();
-        Court court = new Court();
+        Court court = new Court("CourtA", 10, 10);
         Reservation resev = new Reservation(new Date(1000), new Date(2000), tennisPlayer, court);
-
-
         Assert.assertEquals(true, court.Reserve(resev));
     }
 }

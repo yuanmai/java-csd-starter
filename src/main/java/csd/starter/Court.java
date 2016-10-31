@@ -9,6 +9,15 @@ import java.util.List;
  */
 public class Court {
     String Name;
+    public int x;
+    public int y;
+
+    public Court(String name, int x, int y)
+    {
+        this.Name = name;
+        this.x = x;
+        this.y = y;
+    }
 
     List sheet = new ArrayList<Reservation>();
 
