@@ -17,9 +17,41 @@ public class MainTest {
         Assert.assertEquals(true, club.Reserve(resev));
     }
 
+//    @Test
+//    public void size_should_be_increased_by_one_after_pushing() {
+//        queue.add("First Element"); //Act SUT (system/subsystem Under Test)
+//
+//        Assert.assertEquals(1, queue.size()); //Assert
+//    }
+//
+//    @Test(expected = NoSuchElementException.class)
+//    public void popping_an_empty_queue_shall_throw_exception() {
+//        queue.remove();
+//    }
+
     @Test
-    public void test_ui_interaction()
-    {
-        Main.main(new String[] { "Amir\r\n10-10-2010 10:10\r\n10\r\n10"});
+    public void premium_user_reserve_one_slot(){
+        PremiumPlayer premPlayer = new PremiumPlayer("Ahmed");
+        Court court = new Court("court_A", 10, 100);
+        court.Name = "B1";
+        Club club = new Club();
+        Reservation resev = new Reservation(new Date(116, 10, 10, 11, 0),
+                new Date(116, 10, 10, 13, 0),
+                premPlayer, court);
+        Assert.assertEquals(true, club.Reserve(resev));
+    }
+
+    @Test
+    public void premium_user_request_schedule(){
+        PremiumPlayer premPlayer = new PremiumPlayer("ZAAZAA");
+        Court court = new Court("Court_B", 20, 100);
+        Club club = new Club();
+        Reservation resev = new Reservation(new Date(116, 10, 10, 11, 0),
+                new Date(116, 10, 10, 13, 0),
+                new Date(116, 11, 10, 13, 0),
+                premPlayer, court, PremiumPlayer.scheduleType.weekly);
+
+        Assert.assertEquals(true, club.Reserve(resev, PremiumPlayer.scheduleType.weekly));
+
     }
 }
