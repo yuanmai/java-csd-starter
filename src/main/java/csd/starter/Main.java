@@ -1,9 +1,13 @@
 package csd.starter;
 
 import java.awt.peer.SystemTrayPeer;
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
+        final Club club = new Club();
+        final ReservationService resSrvc = new ReservationService(club);
+
         if (args[0] == "Checkout")
         {
             int resId = Integer.parseInt(args[2]);
@@ -12,6 +16,12 @@ public class Main {
             CheckoutResponse response = ClubServices.ChekoutService(res,totalPaid);
 
             System.out.print(response.Message);
+
+        } else if (args[0].equals("Reserve")) {
+
+            club.AddCourt(new Court("Court One"));
+            resSrvc.ReserveCourt("Court One", new Interval(LocalDateTime.of(
+                    2016, 10, 1, 17, 0), LocalDateTime.of(2016, 10, 1, 18, 0)));
 
         }
     }
