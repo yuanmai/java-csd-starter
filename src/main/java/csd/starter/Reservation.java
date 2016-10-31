@@ -17,14 +17,4 @@ public class Reservation {
         this.user = user;
         this.court = court;
     }
-
-    void Checkin()
-    {
-
-    }
-
-    void Checkout()
-    {
-
-    }
 }

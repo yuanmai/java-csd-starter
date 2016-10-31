@@ -15,10 +15,6 @@ public class Player extends User {
         super(name, role);
     }
 
-    void requestReservation(Reservation resev) {
-
-    }
-
     public Court GetNearestCourt(int x, int y)
     {
         double nearestDistance = Double.MAX_VALUE;

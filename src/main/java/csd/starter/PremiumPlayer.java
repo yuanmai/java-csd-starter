@@ -11,8 +11,4 @@ public class PremiumPlayer extends Player {
         super(name, "PremiumPlayer");
 
     }
-    void ReserveSchedule(Date from, Date to, int type)
-    {
-
-    }
 }

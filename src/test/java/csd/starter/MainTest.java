@@ -17,15 +17,9 @@ public class MainTest {
         Assert.assertEquals(true, club.Reserve(resev));
     }
 
-//    @Test
-//    public void size_should_be_increased_by_one_after_pushing() {
-//        queue.add("First Element"); //Act SUT (system/subsystem Under Test)
-//
-//        Assert.assertEquals(1, queue.size()); //Assert
-//    }
-//
-//    @Test(expected = NoSuchElementException.class)
-//    public void popping_an_empty_queue_shall_throw_exception() {
-//        queue.remove();
-//    }
+    @Test
+    public void test_ui_interaction()
+    {
+        Main.main(new String[] { "Amir\r\n10-10-2010 10:10\r\n10\r\n10"});
+    }
 }

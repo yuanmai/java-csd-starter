@@ -18,9 +18,4 @@ public class Court {
         this.x = x;
         this.y = y;
     }
-
-    boolean CheckAvail(Date from, Date to)
-    {
-        return false;
-    }
 }
