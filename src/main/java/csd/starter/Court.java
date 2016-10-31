@@ -19,6 +19,7 @@ public class Court {
     boolean Reserve(Reservation resev)
     {
         sheet.add(resev);
+        System.out.println("Reservation from "+resev.from.toString() +" to "+resev.to.toString() +" done to user "+resev.user.name);
         return true;
     }
 }
