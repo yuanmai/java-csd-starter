@@ -127,6 +127,15 @@ public class MainTest {
         Assert.assertEquals("Checkout Done Successfully",content);
     }
 
+    @Test
+    public void PassSuccessfulReserveInputsToMainCommandLine() {
+        ByteArrayOutputStream BAout = new ByteArrayOutputStream();
+        PrintStream out = new PrintStream(BAout);
+        Main.ReserveCommand(new String[]{"Reserve"},out);
+        String content = new String(BAout.toByteArray(), StandardCharsets.UTF_8);
+        Assert.assertEquals("Reservation Done Successfully",content);
+    }
+
 
 
 

@@ -5,8 +5,6 @@ package csd.starter;
  */
 public final class ClubServices {
 
-    private  ClubServices() {}
-
     public final static CheckoutResponse ChekoutService(Reservation res, int totalpaid) {
         int totalprice = res.getTotalPrice();
         int change = totalpaid - totalprice;
