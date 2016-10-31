@@ -20,7 +20,7 @@ public class PlayerTest {
     @Test
     public void player_can_get_the_nearest_court_to_him()
     {
-        Player player = new Player();
+        Player player = new Player("Player A");
         Court court = player.GetNearestCourt(6,6);
         Assert.assertEquals("CourtB", court.Name);
     }
