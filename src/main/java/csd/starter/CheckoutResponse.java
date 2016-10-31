@@ -3,14 +3,11 @@ package csd.starter;
 /**
  * Created by anassar on 10/30/2016.
  */
-public class CheckoutResponse {
-    public boolean Success;
+public class CheckoutResponse extends ResponseBase {
     public int Change ;
-    public String Message;
 
     public CheckoutResponse(boolean success, int change, String message) {
-        Success = success;
+        super(message, success);
         Change = change;
-        Message = message;
     }
 }

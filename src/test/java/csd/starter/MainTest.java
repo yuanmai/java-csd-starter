@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Base64;
 import java.util.Date;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class MainTest {
@@ -48,12 +48,10 @@ public class MainTest {
     public void reservingEmptySlotSucceeds() {
         final Club club = new Club();
         final ReservationService srvc = new ReservationService(club);
-        final LocalDateTime startTime = LocalDateTime.of(2016, 10, 1, 17, 0);
-        final LocalDateTime endTime = LocalDateTime.of(2016, 10, 1, 18, 0);
 
         club.AddCourt((new Court("Court Two")));
-        Assert.assertEquals(1, srvc.ReserveCourt(
-                "Court Two", new Interval(startTime, endTime)));
+        ReservationResponse response = srvc.ReserveCourtService("Court Two",10,new Date(2016,10,31),4,5);
+        Assert.assertEquals(true,response.Success);
 
     }
 
@@ -61,28 +59,37 @@ public class MainTest {
     public void reservingTwoEmptySlotsInTheSameCourtSucceeds() {
         final Club club = new Club();
         final ReservationService srvc = new ReservationService(club);
-        LocalDateTime startTime = LocalDateTime.of(2016, 10, 1, 17, 0);
-        LocalDateTime endTime = LocalDateTime.of(2016, 10, 1, 18, 0);
 
         club.AddCourt((new Court("Court Three")));
-        Assert.assertEquals(1, srvc.ReserveCourt(
-                "Court Three", new Interval(startTime, endTime)));
-        startTime = LocalDateTime.of(2016, 10, 1, 19, 0);
-        startTime = LocalDateTime.of(2016, 10, 1, 20, 0);
-        Assert.assertEquals(2, srvc.ReserveCourt(
-                "Court Three", new Interval(startTime, endTime)));
 
+        ReservationResponse response = srvc.ReserveCourtService("Court Three",10,new Date(2016,10,31,10,0,0),4,5);
+        ReservationResponse responseTwo = srvc.ReserveCourtService("Court Three",10,new Date(2016,10,31,12,0,0),4,5);
+
+        Assert.assertEquals(true,response.Success);
     }
 
-    @Test(expected = InvalidCourtException.class)
+    @Test
+    public void reservingTwoSlotsInTheSameCourtInTheSameTimFails() {
+        final Club club = new Club();
+        final ReservationService srvc = new ReservationService(club);
+
+        club.AddCourt((new Court("Court Three")));
+
+        ReservationResponse response = srvc.ReserveCourtService("Court Three",10,new Date(2016,10,31,10,0,0),4,5);
+        ReservationResponse responseTwo = srvc.ReserveCourtService("Court Three",10,new Date(2016,10,31,10,0,0),4,5);
+
+        Assert.assertEquals(true,response.Success);
+        Assert.assertEquals(false,responseTwo.Success);
+    }
+
+    @Test
     public void reservingNonExistingCourtFails() {
         final Club club = new Club();
         final ReservationService srvc = new ReservationService(club);
-        final LocalDateTime startTime = LocalDateTime.of(2016, 10, 1, 17, 0);
-        final LocalDateTime endTime = LocalDateTime.of(2016, 10, 1, 18, 0);
 
-        srvc.ReserveCourt("Court Two", new Interval(startTime, endTime));
+        ReservationResponse response = srvc.ReserveCourtService("Court Three",10,new Date(2016,10,31,10,0,0),4,5);
 
+        Assert.assertEquals(false,response.Success);
     }
 
     @Test
@@ -131,9 +138,9 @@ public class MainTest {
     public void PassSuccessfulReserveInputsToMainCommandLine() {
         ByteArrayOutputStream BAout = new ByteArrayOutputStream();
         PrintStream out = new PrintStream(BAout);
-        Main.ReserveCommand(new String[]{"Reserve"},out);
+        Main.ReserveCommand(new String[]{"Reserve", "10", "4" ,"5"},out);
         String content = new String(BAout.toByteArray(), StandardCharsets.UTF_8);
-        Assert.assertEquals("Reservation Done Successfully",content);
+        Assert.assertEquals("Reservation Service Done Successfully",content);
     }
 
 

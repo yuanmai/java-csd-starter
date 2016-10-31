@@ -2,6 +2,7 @@ package csd.starter;
 
 import java.io.PrintStream;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,13 +13,10 @@ public class Main {
     public static void ReserveCommand(String[] args,PrintStream out) {
         final Club club = new Club();
         final ReservationService resSrvc = new ReservationService(club);
-
         if(args[0].equals("Reserve")) {
             club.AddCourt(new Court("Court One"));
-            resSrvc.ReserveCourt("Court One", new Interval(LocalDateTime.of(
-                    2016, 10, 1, 17, 0), LocalDateTime.of(2016, 10, 1, 18, 0)));
-            out.print("Reservation Done Successfully");
-
+            ReservationResponse response = resSrvc.ReserveCourtService("Court One",Integer.parseInt(args[1]),new Date(2016,10,31),4,5);
+            out.print(response.Message);
         }
     }
 
