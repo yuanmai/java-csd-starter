@@ -4,10 +4,25 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        databaseEntry databaseObj = new databaseEntry();
-        databaseHandler dbHandler = new databaseHandler();
+public class Main
+{
+    public static databaseEntry databaseObj;
+    public static databaseHandler dbHandler = new databaseHandler();
+
+    public static void addEntryInDB(databaseEntry databaseObj) throws IOException {
+        try
+        {
+            dbHandler.addEntry(databaseObj);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String args[]) throws IOException
+    {
+        databaseObj = new databaseEntry();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter your username : ");
         String userName = br.readLine();
@@ -22,7 +37,7 @@ public class Main {
 
         databaseObj.setRID();
 
-        dbHandler.addEntry(databaseObj);
+        addEntryInDB(databaseObj);
 
     }
 }
