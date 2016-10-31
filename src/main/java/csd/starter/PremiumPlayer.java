@@ -7,12 +7,17 @@ import java.util.Date;
  */
 public class PremiumPlayer extends Player {
 
-    public PremiumPlayer(String name) {
-        super(name, "PremiumPlayer");
-
+    public PremiumPlayer(String name){
+        super(name, "Player");
     }
-    void ReserveSchedule(Date from, Date to, int type)
-    {
 
+    public enum scheduleType{
+        daily,
+        weekly,
+        monthly
     }
+
+//    void ReserveSchedule(Reservation reserv, scheduleType type){
+////        Reservation reservation = new(reserv);
+//    }
 }
