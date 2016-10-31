@@ -8,13 +8,11 @@ import java.util.Date;
 public class Player extends User {
 
     public Player(String name) {
-        this.name = name;
-        this.role = "Player";
+        super(name, "Player");
     }
 
     public Player(String name, String role) {
-        this.name = name;
-        this.role = role;
+        super(name, role);
     }
 
     void requestReservation(Reservation resev) {
