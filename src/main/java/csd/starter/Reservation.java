@@ -36,15 +36,15 @@ public class Reservation {
         Calendar fromCal = Calendar.getInstance();
         fromCal.setTime(from);
 
-        System.out.println(fromCal);
+//        System.out.println(fromCal);
 
         Calendar toCal = Calendar.getInstance();
         toCal.setTime(to);
-        System.out.println(toCal);
+//        System.out.println(toCal);
 
         Calendar endDateCal = Calendar.getInstance();
         endDateCal.setTime(endDate);
-        System.out.println(endDateCal);
+//        System.out.println(endDateCal);
 
 //        System.out.println(fromCal.compareTo(endDateCal));
 
