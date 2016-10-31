@@ -11,7 +11,7 @@ public class MainTest {
         Player tennisPlayer = new Player("Ahmed");
         Manager manager = new Manager("Zaazaa");
         PremiumPlayer prePlayer = new PremiumPlayer("ElFoly");
-        Court court = new Court();
+        Court court = new Court("CourtA", 10, 10);
         Club club = new Club();
         Reservation resev = new Reservation(new Date(116, 10, 10, 11, 0), new Date(116, 10, 10, 13, 0), tennisPlayer, court);
         Assert.assertEquals(true, club.Reserve(resev));
