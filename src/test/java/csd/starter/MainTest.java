@@ -1,9 +1,13 @@
 package csd.starter;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Base64;
 import java.util.Date;
 
 import static org.junit.Assert.fail;
@@ -19,6 +23,25 @@ public class MainTest {
         Court getCourt = club.GetCourtByName(newCourt.Name);
 
         Assert.assertEquals(getCourt,newCourt);
+    }
+
+    @Test
+    public void retrievingTheSecondCourtAfterAddingTwoCourtsSucceeds() {
+        final Club club = new Club();
+        final Court secondCourt = new Court("Court Two");
+
+        club.AddCourt(new Court("Court One"));
+        club.AddCourt(secondCourt);
+        Assert.assertEquals(secondCourt, club.GetCourtByName("Court Two"));
+
+    }
+
+    @Test
+    public void getNonExistentCourtReturnsNull() {
+        final Club club = new Club();
+
+        Assert.assertEquals(null, club.GetCourtByName(""));
+
     }
 
     @Test
@@ -78,10 +101,38 @@ public class MainTest {
     public void NotSuccessfulPaymentTest() {
 
         Reservation rev1 = new Reservation(new Date(2016,10,30, 10,00, 00),10,1,4, 5 );
-
         CheckoutResponse resp = ClubServices.ChekoutService(rev1, 10);
 
         Assert.assertEquals(resp.Success, false);
         Assert.assertEquals(resp.Change, -10);
+    }
+
+    @Test
+    public void SuccessfulPaymentTestWithExtraChange() {
+
+        Reservation rev1 = new Reservation(new Date(2016,10,30, 10,00, 00),10,1,4, 5 );
+
+        CheckoutResponse resp = ClubServices.ChekoutService(rev1, 30);
+
+        Assert.assertEquals(resp.Success, true);
+        Assert.assertEquals(resp.Change, 10);
+    }
+
+    @Test
+    public void PassSuccessfulCheckoutInputsToMainCommandLine() {
+        ByteArrayOutputStream BAout = new ByteArrayOutputStream();
+        PrintStream out = new PrintStream(BAout);
+        Main.CheckoutCommand(new String[]{"Checkout","10","20"},out);
+        String content = new String(BAout.toByteArray(), StandardCharsets.UTF_8);
+        Assert.assertEquals("Checkout Done Successfully",content);
+    }
+
+
+
+
+    @Test
+    public void get_reservation_by_id_test_should_not_return_null() {
+        ReservationRepository repo = new ReservationRepository();
+        Assert.assertNotEquals(null,repo.GetreservationById(10));
     }
 }
