@@ -16,7 +16,7 @@ public class Main {
     public static void ReserveCommand(String[] args,PrintStream out) {
         final Club club = new Club();
         final ReservationService resSrvc = new ReservationService(club);
-        if(args[0].equals("Reserve")) {
+        if(("Reserve").equals(args[0])) {
             club.AddCourt(new Court("Court One"));
             ReservationResponse response = resSrvc.ReserveCourtService("Court One",Integer.parseInt(args[1]),new Date(2016,10,31),4,5);
             out.print(response.Message);
