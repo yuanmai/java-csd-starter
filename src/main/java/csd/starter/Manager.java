@@ -11,11 +11,4 @@ public class Manager extends User {
     public Manager(String name) {
         super(name, "Manager");
     }
-    List<Court> checkAvail(Date from, Date to) {
-        return null;
-    }
-
-    void performReservation(Court court, Date from, Date to)
-    {
-    }
 }

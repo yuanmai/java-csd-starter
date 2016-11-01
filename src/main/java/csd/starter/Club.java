@@ -20,6 +20,14 @@ public class Club {
         return true;
     }
 
+    boolean Reserve(Reservation reserv, PremiumPlayer.scheduleType scheduleType)
+    {
+        sheet.add(reserv);
+        System.out.println("Reservation from "+reserv.from.toString() +" to "+reserv.to.toString() +" done to user: "+reserv.user.name +
+                " On  " + scheduleType + " basis till: " + reserv.scheduleEndDate);
+        return true;
+    }
+
     public void PrintReservationLog()
     {
         System.out.println("========================================");
