@@ -53,7 +53,7 @@ public class UIInteractive {
         System.out.println("Enter your location x and y");
         int x = scanner.nextInt();
         int y = scanner.nextInt();
-        Court nearestCourt = player.GetNearestCourt(x, y);
+        Court nearestCourt = player.getNearestCourt(x, y);
         if(nearestCourt != null)
         {
             System.out.println("Nearest court is: "+nearestCourt.Name);
