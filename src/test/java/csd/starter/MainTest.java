@@ -149,6 +149,7 @@ public class MainTest {
         ByteArrayOutputStream BAout = new ByteArrayOutputStream();
         PrintStream out = new PrintStream(BAout);
         Main.ReserveCommand(new String[]{"Hamada", "10", "4" ,"5"},out);
+        Main.CheckoutCommand(new String[]{"Hamada", "10", "4" ,"5"},out);
         String content = new String(BAout.toByteArray(), StandardCharsets.UTF_8);
         Assert.assertEquals("",content);
     }
