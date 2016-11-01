@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.StringJoiner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -141,6 +142,15 @@ public class MainTest {
         Main.ReserveCommand(new String[]{"Reserve", "10", "4" ,"5"},out);
         String content = new String(BAout.toByteArray(), StandardCharsets.UTF_8);
         Assert.assertEquals("Reservation Service Done Successfully",content);
+    }
+
+    @Test
+    public void PassInvalidCommandToMainCommandLine() {
+        ByteArrayOutputStream BAout = new ByteArrayOutputStream();
+        PrintStream out = new PrintStream(BAout);
+        Main.ReserveCommand(new String[]{"Hamada", "10", "4" ,"5"},out);
+        String content = new String(BAout.toByteArray(), StandardCharsets.UTF_8);
+        Assert.assertEquals("",content);
     }
 
 

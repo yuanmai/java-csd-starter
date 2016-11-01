@@ -24,7 +24,7 @@ public class Main {
     }
 
     public static void CheckoutCommand(String[] args, PrintStream out) {
-        if (args[0].equals("Checkout")) {
+        if (("Checkout").equals(args[0])) {
             int resId = Integer.parseInt(args[1]);
             int totalPaid = Integer.parseInt(args[2]);
             Reservation res = ReservationRepository.GetreservationById(resId);
