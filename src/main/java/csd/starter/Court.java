@@ -9,13 +9,17 @@ import java.util.List;
  */
 public class Court {
     String Name;
-    public int x;
-    public int y;
+    private int x;
+    private int y;
 
     public Court(String name, int x, int y)
     {
         this.Name = name;
         this.x = x;
         this.y = y;
+    }
+
+    public double getCurrentDistance(double x, double y) {
+        return Math.sqrt(Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2));
     }
 }

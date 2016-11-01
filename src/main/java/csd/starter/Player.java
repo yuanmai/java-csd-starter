@@ -1,7 +1,5 @@
 package csd.starter;
 
-import java.util.Date;
-
 /**
  * Created by akamel on 10/30/2016.
  */
@@ -22,7 +20,7 @@ public class Player extends User {
         for(int i=0; i<Club.ActiveClub.courts.size(); i++)
         {
             Court currentCourt = Club.ActiveClub.courts.get(i);
-            double currentDistance = Math.sqrt(Math.pow((double)x-currentCourt.x, 2) + Math.pow((double)y-currentCourt.y, 2));
+            double currentDistance = currentCourt.getCurrentDistance(x, y);
             if((currentDistance - nearestDistance) < 0.0d)
             {
                 nearestCourt = currentCourt;
@@ -31,4 +29,5 @@ public class Player extends User {
         }
         return nearestCourt;
     }
+
 }
