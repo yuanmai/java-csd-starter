@@ -6,11 +6,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 /**
  * Created by akamel on 10/31/2016.
  */
 public class UIInteractive {
 
+
+    private static final Logger LOGGER = Logger.getLogger( UIInteractive.class.getName() );
 
     public void Reserve(String input)
     {
@@ -34,7 +40,7 @@ public class UIInteractive {
             try {
                 date = formatter.parse(dateString);
             } catch (ParseException e) {
-                e.printStackTrace();
+                LOGGER.log(Level.INFO, e.toString());
                 return;
             }
 
