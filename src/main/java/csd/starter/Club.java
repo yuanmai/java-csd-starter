@@ -21,7 +21,6 @@ public class Club {
     boolean reserve(Reservation resev)
     {
         sheet.add(resev);
-        logger.log(Level.INFO, reservationFrom + resev.from.toString() +" to "+resev.to.toString() +" done to user "+resev.user.name);
         return true;
     }
 
@@ -40,7 +39,7 @@ public class Club {
         for(int i=0; i<sheet.size(); i++)
         {
             Reservation resev = (Reservation)sheet.get(i);
-            logger.log(Level.INFO, reservationFrom + resev.from.toString() +" to "+resev.to.toString() +" done to user "+resev.user.name);
+            logger.log(Level.INFO, "Reservation from "+resev.from.toString() +" to "+resev.to.toString() +" done to user "+resev.user.name +" on court: " + resev.court.Name);
         }
     }
 }
