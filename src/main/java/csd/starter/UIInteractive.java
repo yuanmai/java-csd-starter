@@ -65,8 +65,8 @@ public class UIInteractive {
         }
 
         Reservation resev = new Reservation(date, date2, player, nearestCourt);
-        Club.ActiveClub.Reserve(resev);
-        Club.ActiveClub.PrintReservationLog();
+        Club.ActiveClub.reserve(resev);
+        Club.ActiveClub.printReservationLog();
     }
 
     public void SetupData()

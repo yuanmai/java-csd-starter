@@ -14,7 +14,7 @@ public class MainTest {
         Court court = new Court("CourtA", 10, 10);
         Club club = new Club();
         Reservation resev = new Reservation(new Date(116, 10, 10, 11, 0), new Date(116, 10, 10, 13, 0), tennisPlayer, court);
-        Assert.assertEquals(true, club.Reserve(resev));
+        Assert.assertEquals(true, club.reserve(resev));
     }
 
 //    @Test
@@ -38,7 +38,7 @@ public class MainTest {
         Reservation resev = new Reservation(new Date(116, 10, 10, 11, 0),
                 new Date(116, 10, 10, 13, 0),
                 premPlayer, court);
-        Assert.assertEquals(true, club.Reserve(resev));
+        Assert.assertEquals(true, club.reserve(resev));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class MainTest {
                 new Date(116, 11, 10, 13, 0),
                 premPlayer, court, PremiumPlayer.scheduleType.weekly);
 
-        Assert.assertEquals(true, club.Reserve(resev, PremiumPlayer.scheduleType.weekly));
+        Assert.assertEquals(true, club.reserve(resev, PremiumPlayer.scheduleType.weekly));
 
     }
 
