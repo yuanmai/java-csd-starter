@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  */
 public class Club {
     List sheet = new ArrayList<Reservation>();
-    protected static List<Court> courts = new ArrayList<Court>();
+    protected List<Court> courts = new ArrayList<Court>();
     public static final Club ActiveClub = new Club();
 
     private String reservationFrom = "Reservation from";
