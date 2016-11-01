@@ -2,40 +2,44 @@ package csd.starter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  * Created by amir on 10/31/2016.
  */
 public class Club {
     List sheet = new ArrayList<Reservation>();
-    public List<Court> courts = new ArrayList<Court>();
+    protected static List<Court> courts = new ArrayList<Court>();
+    public static final Club ActiveClub = new Club();
 
-    public static Club ActiveClub = new Club();
+    private String reservationFrom = "Reservation from";
 
+    private static final Logger logger = Logger.getLogger( Club.class.getName() );
 
-    boolean Reserve(Reservation resev)
+    boolean reserve(Reservation resev)
     {
         sheet.add(resev);
-        //System.out.println("Reservation from "+resev.from.toString() +" to "+resev.to.toString() +" done to user "+resev.user.name);
         return true;
     }
 
-    boolean Reserve(Reservation reserv, PremiumPlayer.scheduleType scheduleType)
+    boolean reserve(Reservation reserv, PremiumPlayer.scheduleType scheduleType)
     {
         sheet.add(reserv);
-        System.out.println("Reservation from "+reserv.from.toString() +" to "+reserv.to.toString() +" done to user: "+reserv.user.name +
+        logger.log(Level.INFO, reservationFrom + reserv.from.toString() +" to "+reserv.to.toString() +" done to user: "+reserv.user.name +
                 " On  " + scheduleType + " basis till: " + reserv.scheduleEndDate);
         return true;
     }
 
-    public void PrintReservationLog()
+    public void printReservationLog()
     {
-        System.out.println("========================================");
-        System.out.println("Reservation Log:");
+        logger.log(Level.INFO, "========================================");
+        logger.log(Level.INFO, "Reservation Log:");
         for(int i=0; i<sheet.size(); i++)
         {
             Reservation resev = (Reservation)sheet.get(i);
-            System.out.println("Reservation from "+resev.from.toString() +" to "+resev.to.toString() +" done to user "+resev.user.name +" on court: " + resev.court.Name);
+            logger.log(Level.INFO, "Reservation from "+resev.from.toString() +" to "+resev.to.toString() +" done to user "+resev.user.name +" on court: " + resev.court.Name);
         }
     }
 }
