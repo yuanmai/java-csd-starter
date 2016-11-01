@@ -15,7 +15,7 @@ public class Court {
         Name = name;
     }
 
-    public boolean HasFreeSlotAt(Date date, int numofunits) {
+    public boolean HasFreeSlotAt(Date date) {
         for(Reservation item :Reservations)
         {
             if(item.date.equals(date))

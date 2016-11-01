@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Main {
+
+    private Main(){}
+
     public static void main(String[] args) {
         ReserveCommand(args,System.out);
         CheckoutCommand(args,System.out);

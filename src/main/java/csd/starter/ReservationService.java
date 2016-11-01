@@ -1,17 +1,19 @@
 package csd.starter;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  * Created by MSAFWAT on 10/30/2016.
  */
 public class ReservationService {
     private Club _club;
-    private int _count = 0;
+    private Logger logger;
 
     public ReservationService(Club club) {
-
+        logger = Logger.getAnonymousLogger();
         _club = club;
 
     }
@@ -22,15 +24,19 @@ public class ReservationService {
             Court court = _club.GetCourtByName(courtname);
             if (court == null)
                 throw new InvalidCourtException();
-            if(court.HasFreeSlotAt(date,numofunits))
+            if(court.HasFreeSlotAt(date))
                 court.Reservations.add(new Reservation(date,playerid,court.Id,numofunits,rateofunit));
             else
                 throw new NotAvailableSlotsException();
         }
         catch (InvalidCourtException ex){
+            Exception e1 = new Exception(ex);
+            logger.log(Level.SEVERE, "an exception was thrown", e1);
             response.Success = false;
             response.Message = ex.getMessage();
         } catch (NotAvailableSlotsException e) {
+            Exception e1 = new Exception(e);
+            logger.log(Level.SEVERE, "an exception was thrown", e1);
             response.Success = false;
             response.Message = e.getMessage();
         }
