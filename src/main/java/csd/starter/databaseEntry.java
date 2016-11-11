@@ -37,7 +37,7 @@ public class databaseEntry {
 
             for (Iterator<String> iter = courtsList.listIterator(); iter.hasNext(); ) {
                 String a = iter.next();
-                if (this.courtNumber.equals(iter)) {
+                if (this.courtNumber.equals(iter.toString())) {
                     iter.remove();
                 }
             }
