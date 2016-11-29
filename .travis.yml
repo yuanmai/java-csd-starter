@@ -6,10 +6,10 @@ jdk:
 cache:
   directories:
   - $HOME/.m2
-  - $HOME/travis/.sonar/cache
+  - $HOME/travis
   
 script:
-  - mvn clean install
+  - mvn clean test
   
 after_success:
   - mvn sonar:sonar -Dsonar.host.url=https:/sonarqube.com -Dsonar.login=${SONARQUBE_TOKEN}
