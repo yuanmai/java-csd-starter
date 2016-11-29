@@ -6,6 +6,7 @@ jdk:
 cache:
   directories:
   - $HOME/.m2
+  - $HOME/travis/.sonar/cache
   
 script:
   - mvn clean install
