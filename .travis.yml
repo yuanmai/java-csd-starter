@@ -1,4 +1,4 @@
 language: java
 
 script:
-  - mvn test
+  - mvn clean install sonar:sonar -Dsonar.host.url=https:/sonarqube.com -Dsonar.login=${SONARQUBE_TOKEN}
